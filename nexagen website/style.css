@@ -76,13 +76,7 @@ body {
   width: 100%;
 }
 
-/* #header {
-    background-image: url(img/bg1.jpg);
-}
-
-#nav-bar .logo {
-    color: #fff;
-} */
+/* Header Styling */
 
 #header {
   display: flex;
@@ -116,10 +110,7 @@ body {
   color: blue !important;
 }
 
-/* #header.scrolled ul li a button {
-  background-color: blue;
-  color: white !important;
-} */
+
 
 #header.scrolled ul li a button {
   background: linear-gradient(135deg, #4f46e5, #3b82f6); /* Indigo to blue */
@@ -228,20 +219,32 @@ body {
   color: white !important;
   border: none;
 }
-#slide-section .slider-wrapper {
+
+#slide-section{
   background-image: url(img/sliderbg.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: auto;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 25px;
-  width: 100%;
+  justify-content: center;
+}
+
+
+#slide-section .slider-wrapper {
+  display: flex;
+  align-items: center;
+  width: 69%;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .slider {
   display: flex;
-  overflow-x: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   background-color: transparent;
   gap: 30px;
@@ -427,7 +430,6 @@ body {
 }
 
 .carousel {
-
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
