@@ -110,8 +110,6 @@ body {
   color: blue !important;
 }
 
-
-
 #header.scrolled ul li a button {
   background: linear-gradient(135deg, #4f46e5, #3b82f6); /* Indigo to blue */
   color: white !important;
@@ -220,7 +218,7 @@ body {
   border: none;
 }
 
-#slide-section{
+#slide-section {
   background-image: url(img/sliderbg.jpg);
   background-repeat: no-repeat;
   width: 100%;
@@ -232,7 +230,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 
 #slide-section .slider-wrapper {
   display: flex;
@@ -379,12 +376,21 @@ body {
 
 #team {
   height: 80vh;
-  background-color: #caf0f8;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: #caf0f8;
+}
+#team .about-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 .about-team .top {
@@ -402,6 +408,7 @@ body {
   text-transform: uppercase;
   margin: unset;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .about-team .top .p2 {
@@ -414,6 +421,7 @@ body {
   line-height: 20px;
   margin: unset;
   margin-bottom: 30px;
+  margin: 0 10px 0 10px;
 }
 
 .about-team .p3 {
@@ -423,16 +431,16 @@ body {
   line-height: 2em;
 }
 
-.carousel-wrapper {
-  position: relative;
+/* .carousel-wrapper {
+  display: flex;
   overflow: hidden;
-  width: 50%;
+  width: 60%;
+  height: auto;
 }
 
 .carousel {
   display: flex;
   overflow-x: auto;
-  scroll-behavior: smooth;
   gap: 20px;
   scrollbar-width: none;
 }
@@ -443,12 +451,20 @@ body {
 
 .partner-card {
   flex: 0 0 auto;
-  width: 250px;
-  height: 300px;
+  width: 23.6%;
+  height: auto;
   background: #f4f4f4;
   text-align: center;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
+  position: relative;
+}
+
+.partner-card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .scroll-btn {
@@ -470,4 +486,147 @@ body {
 
 .scroll-btn.right {
   right: 10px;
+}
+
+.partner-card h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: unset;
+  margin-bottom: 10px;
+  z-index: 999;
+}
+
+.partner-card-overlay {
+  background-color: #fff;
+  margin-top: -50px;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+} */
+
+.team-display {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 60%;
+  height: 200px;
+}
+
+.carousel-wrapper {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  gap: 20px;
+  scrollbar-width: none;
+  position: relative;
+  z-index: 1;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.team-display #scroll-right {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 50px;
+  padding: 10px;
+  z-index: 10;
+}
+
+.team-display #scroll-left {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 50px;
+  padding: 10px;
+  z-index: 10;
+}
+
+/* .carousel .partner-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 100%;
+  background: #f4f4f4;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+} */
+
+.carousel .partner-card {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* width: 30%; */
+  width: 30%;
+  height: 48%;
+  background: #f4f4f4;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.carousel .partner-card img {
+  flex: auto;
+  border-radius: 10px;
+  margin: 10px;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.carousel .partner-card h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: unset;
+  margin-bottom: 10px;
+  z-index: 999;
+}
+
+.carousel .partner-card p {
+  font-size: 12px;
+  margin: unset;
+  margin-bottom: 10px;
+  z-index: 999;
+  color: #3b82f6;
+  font-weight: 500;
 }

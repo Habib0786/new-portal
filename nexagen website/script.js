@@ -49,48 +49,112 @@ function scrollSlider(direction) {
   }, 400); // must match scroll animation time
 }
 
+// const carousel = document.getElementById("carousel");
+// const scrollLeftBtn = document.getElementById("scroll-left");
+// const scrollRightBtn = document.getElementById("scroll-right");
+
+// // Duplicate content to fake infinite scroll
+// carousel.innerHTML += carousel.innerHTML;
+
+// const cardWidth = carousel.querySelector(".partner-card").offsetWidth + 20; // includes gap
+// let scrollPosition = 0;
+
+// // Autoscroll every 2 seconds
+// function autoScroll() {
+//   scrollPosition += cardWidth;
+//   if (scrollPosition >= carousel.scrollWidth / 2) {
+//     scrollPosition = 0;
+//     carousel.scrollLeft = 0;
+//   }
+//   carousel.scrollTo({
+//     left: scrollPosition,
+//     behavior: "smooth",
+//   });
+// }
+
+// let scrollInterval = setInterval(autoScroll, 2000);
+
+// // Button Scrolls
+// scrollRightBtn.addEventListener("click", () => {
+//   scrollPosition += cardWidth;
+//   if (scrollPosition >= carousel.scrollWidth / 2) {
+//     scrollPosition = 0;
+//     carousel.scrollLeft = 0;
+//   }
+//   carousel.scrollTo({ left: scrollPosition, behavior: "smooth" });
+// });
+
+// scrollLeftBtn.addEventListener("click", () => {
+//   scrollPosition -= cardWidth;
+//   if (scrollPosition < 0) {
+//     scrollPosition = carousel.scrollWidth / 2 - cardWidth;
+//     carousel.scrollLeft = scrollPosition;
+//   }
+//   carousel.scrollTo({ left: scrollPosition, behavior: "smooth" });
+// });
+
+// // Pause on hover
+// carousel.addEventListener("mouseenter", () => clearInterval(scrollInterval));
+// carousel.addEventListener("mouseleave", () => {
+//   scrollInterval = setInterval(autoScroll, 2000);
+// });
+
+
 const carousel = document.getElementById("carousel");
 const scrollLeftBtn = document.getElementById("scroll-left");
 const scrollRightBtn = document.getElementById("scroll-right");
 
-// Duplicate content to fake infinite scroll
+// Duplicate content to simulate infinite scroll
 carousel.innerHTML += carousel.innerHTML;
 
-const cardWidth = carousel.querySelector(".partner-card").offsetWidth + 20; // includes gap
+const cardWidth = carousel.querySelector(".partner-card").offsetWidth + 20; // includes margin/gap
 let scrollPosition = 0;
+
+// Function to smoothly scroll
+function scrollToPosition(pos, smooth = true) {
+  carousel.scrollTo({
+    left: pos,
+    behavior: smooth ? "smooth" : "auto",
+  });
+}
 
 // Autoscroll every 2 seconds
 function autoScroll() {
   scrollPosition += cardWidth;
+
+  scrollToPosition(scrollPosition);
+
+  // If passed half (end of original), reset instantly to start
   if (scrollPosition >= carousel.scrollWidth / 2) {
     scrollPosition = 0;
-    carousel.scrollLeft = 0;
+    setTimeout(() => scrollToPosition(scrollPosition, false), 300); // jump without animation
   }
-  carousel.scrollTo({
-    left: scrollPosition,
-    behavior: "smooth",
-  });
 }
 
 let scrollInterval = setInterval(autoScroll, 2000);
 
-// Button Scrolls
+// Right button
 scrollRightBtn.addEventListener("click", () => {
   scrollPosition += cardWidth;
+  scrollToPosition(scrollPosition);
+
   if (scrollPosition >= carousel.scrollWidth / 2) {
     scrollPosition = 0;
-    carousel.scrollLeft = 0;
+    setTimeout(() => scrollToPosition(scrollPosition, false), 300);
   }
-  carousel.scrollTo({ left: scrollPosition, behavior: "smooth" });
 });
 
+// Left button
 scrollLeftBtn.addEventListener("click", () => {
   scrollPosition -= cardWidth;
+
+  // If before 0, jump to the second half
   if (scrollPosition < 0) {
     scrollPosition = carousel.scrollWidth / 2 - cardWidth;
-    carousel.scrollLeft = scrollPosition;
+    scrollToPosition(scrollPosition, false);
+  } else {
+    scrollToPosition(scrollPosition);
   }
-  carousel.scrollTo({ left: scrollPosition, behavior: "smooth" });
 });
 
 // Pause on hover
