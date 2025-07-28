@@ -393,7 +393,8 @@ body {
   margin-bottom: 50px;
 }
 
-.about-team .top {
+.about-team .top,
+.top {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -401,7 +402,8 @@ body {
   align-items: center;
 }
 
-.about-team .top .p1 {
+.about-team .top .p1,
+.about-portfolio .top .p1 {
   color: blue;
   font-size: 12px;
   font-weight: 500;
@@ -411,7 +413,8 @@ body {
   margin-top: 30px;
 }
 
-.about-team .top .p2 {
+.about-team .top .p2,
+.about-portfolio .top .p2 {
   content: "";
   display: block;
   width: 25px;
@@ -424,85 +427,13 @@ body {
   margin: 0 10px 0 10px;
 }
 
-.about-team .p3 {
+.about-team .p3,
+.p3 {
   margin-bottom: 40px;
   font-size: 14px;
   font-weight: 500;
   line-height: 2em;
 }
-
-/* .carousel-wrapper {
-  display: flex;
-  overflow: hidden;
-  width: 60%;
-  height: auto;
-}
-
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  scrollbar-width: none;
-}
-
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.partner-card {
-  flex: 0 0 auto;
-  width: 23.6%;
-  height: auto;
-  background: #f4f4f4;
-  text-align: center;
-  border-radius: 10px;
-  padding: 10px;
-  position: relative;
-}
-
-.partner-card img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-}
-
-.scroll-btn.left {
-  left: 10px;
-}
-
-.scroll-btn.right {
-  right: 10px;
-}
-
-.partner-card h3 {
-  font-size: 12px;
-  text-transform: uppercase;
-  margin: unset;
-  margin-bottom: 10px;
-  z-index: 999;
-}
-
-.partner-card-overlay {
-  background-color: #fff;
-  margin-top: -50px;
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-} */
 
 .team-display {
   display: flex;
@@ -571,29 +502,7 @@ body {
   z-index: 10;
 }
 
-/* .carousel .partner-card {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  width: 20%;
-  height: 100%;
-  background: #f4f4f4;
-  text-align: center;
-  border-radius: 10px;
-  padding: 10px;
-  position: relative;
-  flex-shrink: 0;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-} */
-
 .carousel .partner-card {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* width: 30%; */
   width: 30%;
   height: 48%;
   background: #f4f4f4;
@@ -630,3 +539,111 @@ body {
   color: #3b82f6;
   font-weight: 500;
 }
+
+#portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  background: #f9f9f9;
+}
+
+.portfolio-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  height: fit-content;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-wrapper {
+  overflow: hidden;
+}
+
+.carousel1 {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.portfolio-card {
+  min-width: 33%;
+  flex: 0 0 33%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.portfolio-card img {
+  display: contents;
+  width: 100%;
+  height: 300px;
+  display: block;
+  object-fit: contain;
+}
+
+.portfolio-text {
+  padding: 15px;
+}
+
+.portfolio-text h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #088178;
+}
+
+.portfolio-text .title {
+  font-size: 14px;
+  color: #444;
+}
+
+.portfolio-display #scroll-left1 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: #caf0f8;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 50px;
+  padding: 10px;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.portfolio-display #scroll-right1 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: #caf0f8;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 50px;
+  margin: unset;
+  padding: unset;
+  padding: 10px;
+  z-index: 10;
+    top: 50%;
+  transform: translateY(-50%);
+  
+}
+
+/* .scroll-btn.left {
+  left: 10px;
+}
+
+.scroll-btn.right {
+  right: 10px;
+} */

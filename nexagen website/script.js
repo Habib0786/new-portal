@@ -162,3 +162,42 @@ carousel.addEventListener("mouseenter", () => clearInterval(scrollInterval));
 carousel.addEventListener("mouseleave", () => {
   scrollInterval = setInterval(autoScroll, 2000);
 });
+
+
+
+
+
+
+
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const carousel1 = document.getElementById("carousel1");
+    const scrollLeftBtn1 = document.getElementById("scroll-left1");
+    const scrollRightBtn1 = document.getElementById("scroll-right1");
+
+    const card = carousel1.querySelector(".portfolio-card");
+    if (!carousel1 || !card) {
+      console.error("❌ carousel1 or portfolio cards not found!");
+      return;
+    }
+
+    const style = getComputedStyle(card);
+    const cardWidth1 = card.offsetWidth + parseInt(style.marginRight || 0);
+    let scrollPosition1 = 0;
+
+    function scrollSlider1(direction) {
+      scrollPosition1 += direction * cardWidth1;
+
+      const maxScroll = carousel1.scrollWidth - carousel1.clientWidth;
+      if (scrollPosition1 < 0) scrollPosition1 = 0;
+      if (scrollPosition1 > maxScroll) scrollPosition1 = maxScroll;
+
+      carousel1.scrollTo({ left: scrollPosition1, behavior: "smooth" });
+    }
+
+    scrollLeftBtn1?.addEventListener("click", () => scrollSlider1(-1));
+    scrollRightBtn1?.addEventListener("click", () => scrollSlider1(1));
+  });
+
+
+
